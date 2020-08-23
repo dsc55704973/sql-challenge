@@ -5,8 +5,6 @@ CREATE TABLE departments (
 	dept_name VARCHAR(30)
 );
 
-SELECT * FROM departments;
-
 -- dept_emp
 DROP TABLE IF EXISTS dept_emp;
 CREATE TABLE dept_emp (
@@ -14,16 +12,12 @@ CREATE TABLE dept_emp (
 	dept_no VARCHAR(30)
 );
 
-SELECT * FROM dept_emp;
-
 -- dept_manager
 DROP TABLE IF EXISTS dept_manager;
 CREATE TABLE dept_manager (
 	dept_no VARCHAR(30),
 	emp_no INT
 );
-
-SELECT * FROM dept_manager;
 
 -- employees
 DROP TABLE IF EXISTS employees;
@@ -58,10 +52,17 @@ CREATE TABLE titles (
 SELECT * FROM titles;
 
 -- 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
+-- join employees and salaries
+SELECT * FROM employees
+INNER JOIN salaries ON
+employees.emp_no = salaries.emp_no;
+
 SELECT emp_no, last_name, sex
-FROM employees
+FROM employees;
 
 -- 2. List first name, last name, and hire date for employees who were hired in 1986.
+SELECT first_name, last_name
+FROM employees;
 
 -- 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
